@@ -1,15 +1,15 @@
-//Implementation using BREADTH-FIRST-SEARCH (i.e using queue)
+//Implementation using DEPTH-FIRST-SEARCH (i.e using stack)
 #include<bits/stdc++.h>
 using namespace std; 
 
 bool bfs(vector<int> g[] , int start , int n){
-	int parent[n+1] = {0}; 	    		 //parent array to keep track of the parent node 
-	bool visited[n+1];	   		      //visited array for keeping track if the current node under consideration is already visited or not. 
-	memset(visited,0,sizeof(visited));    //for instantiating each element of visited array as false initially
+	int parent[n+1] = {0};               //parent array to keep track of the parent node 
+	bool visited[n+1];                   //visited array for keeping track if the current node under consideration is already visited or not. 
+	memset(visited,0,sizeof(visited));   //for instantiating each element of visited array as false initially
 	
 	stack<int> s;
 	s.push(start);
-	int count=0;   				      //count is for counting how many nodes we have seen so far as we have to make sure that we should consider all the nodes
+	int count=0;                         //count is for counting how many nodes we have seen so far as we have to make sure that we should consider all the nodes
 	
 	while(!s.empty()){
 		int w = s.top();
@@ -46,7 +46,7 @@ int main()
 	for(int i=0 ; i<e ; i++){
 		cin>>start>>end;
 		g[start].push_back(end);
-		g[end].push_back(start);  //As we're asked to implement undirected graph.
+		g[end].push_back(start);          //As we're asked to implement undirected graph.
 	}
 
 	if(bfs(g , 1 , n)) cout<<"YES"<<endl;
