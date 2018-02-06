@@ -1,8 +1,8 @@
-   	// AGGRESSIVE COWS PROBLEM FROM SPOJ (Implementation using binary search technique)
+   // Link to the problem statement =>  http://www.spoj.com/problems/AGGRCOW/
+   // AGGRESSIVE COWS PROBLEM FROM SPOJ (Implementation using binary search technique)
     #include<bits/stdc++.h>
     using namespace std;
-     
-     
+    
     //This function is greedy approach to check weather mid can be a possible answer or not 
     bool check(int cows,long long positions[],int n,long long mid){
     	int count = 1;
