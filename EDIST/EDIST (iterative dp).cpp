@@ -1,3 +1,5 @@
+//Link to the problem statement => http://www.spoj.com/problems/EDIST/
+//EDIT DISTANCE PROBLEM FROM SPOJ (Top-Down iterative DP approach)  
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -16,16 +18,16 @@ int editDistance(string str1, string str2, int len1, int len2){
 			else if(j==0) arr[i][j] = i;
 			
 			else if(str1[i-1] == str2[j-1])
-			    	arr[i][j] = arr[i-1][j-1];
+			    	arr[i][j] = arr[i-1][j-1];           //when characters are equal then copy diagonal up value from the table
 				
 			else{
-				arr[i][j] = 1 + min(arr[i-1][j-1],
+				arr[i][j] = 1 + min(arr[i-1][j-1],       //when characters are not equal then add one to the minimum of top,left or diagonal values
 									arr[i-1][j],
 									arr[i][j-1]);
 			}	
 		}
 	}
-	return arr[len1][len2];
+	return arr[len1][len2];                             //the answer is the value of the last element of the table as every character is now compared. 
 }
 
 int main(){
